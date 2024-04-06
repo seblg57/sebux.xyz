@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6156ac82-7ce0-458f-b0fd-0e935d12ec6c" name="almalinuxSebux">
+        <fileTransfer rootFolder="/opt/sebux.xyz" accessType="SFTP" host="vps-7e7110d5.vps.ovh.ca" port="60333" sshConfigId="f899e9eb-6465-49e8-b3d4-76a909760f1e" sshConfig="sebuxor@vps-7e7110d5.vps.ovh.ca:60333 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

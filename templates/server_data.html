@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>CPU Data</title>
+</head>
+<body>
+    <h1>CPU Usage</h1>
+    <div id="cpu-data">CPU Percent: <span id="cpu-percent"></span>%</div>
+    <script>
+        function fetchCpuData() {
+            fetch('/cpu_data_live')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('cpu-percent').textContent = data.cpu_percent;
+                });
+        }
+        // Fetch CPU data initially and start fetching data every second
+        fetchCpuData();
+        setInterval(fetchCpuData, 10000);
+    </script>
+    <h1>GAUGE</h1>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='cpu_bar.js') }}"></script>
+        <div class="wrapper">
+    <div class="outer-wrapper">
+        <div class="column-wrapper">
+            <div class="column cpu"></div>
+        </div>
+        <div class="data">
+            <div class="percentage cpu">--</div>
+            <div class="value">CPU</div>
+        </div>
+    </div>
+
+    <div class="outer-wrapper">
+        <div class="column-wrapper">
+            <div class="column memory"></div>
+        </div>
+        <div class="data">
+            <div class="percentage memory">--</div>
+            <div class="value">Mem</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
